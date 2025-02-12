@@ -8,8 +8,8 @@ import terabite.repository.MarcaRepository
 
 @Service
 class MarcaService(private val marcaRepository: MarcaRepository) {
-    fun listarMarca(): List<Marca>{
-        var marcas: List<Marca> = marcaRepository.findAll()
+    fun listarMarca(): MutableList<Marca>{
+        var marcas: MutableList<Marca> = marcaRepository.findAll()
 
         if(marcas.isEmpty()){
             throw ResponseStatusException(HttpStatusCode.valueOf(204))
