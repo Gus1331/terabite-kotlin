@@ -1,5 +1,6 @@
 package terabite.service
 
+import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -23,13 +24,11 @@ class MarcaService(private val marcaRepository: MarcaRepository) {
     }
 
     fun buscarPorNomeMarca(nomeMarca: String): Marca{
-        var marca = marcaRepository.findByNomeIgnoreCase(nomeMarca)
+        if(nomeMarca.isBlank()) throw ResponseStatusException(HttpStatus.BAD_REQUEST)
 
-        if(marca != null){
-            return  marca
-        }
+        val marca = marcaRepository.findByNomeIgnoreCase(nomeMarca) ?: return criarMarca(Marca(null,  nomeMarca))
 
-        return criarMarca(Marca(null,  nomeMarca))
+        return marca
     }
 
     fun criarMarca(novaMarca: Marca): Marca{
