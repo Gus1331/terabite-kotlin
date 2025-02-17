@@ -34,6 +34,7 @@ class MarcaServiceTest {
 
     @BeforeEach
     fun setup() {
+        marcasEsperadas.removeAll(marcasEsperadas)
         marcasEsperadas.addAll(
             listOf(
                 Marca(1, "Senhor Sorvete"),
