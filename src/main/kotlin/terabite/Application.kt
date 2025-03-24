@@ -9,6 +9,6 @@ class Application
 
 fun main(args: Array<String>) {
 	val aws = AWSService()
-	aws.getRDSConnection()
+	// aws.getRDSConnection()
 	runApplication<Application>(*args)
 }
