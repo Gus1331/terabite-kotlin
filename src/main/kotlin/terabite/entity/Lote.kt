@@ -24,7 +24,8 @@ data class Lote(
     @Column(name = "VALOR_LOTE")
     var valorLote: Double? = null,
 
-    @ManyToOne
-    @JoinColumn(name = "FK_ID_PROD_LOTE", referencedColumnName = "ID_PROD")
-    var produto: Produto? = null
+    @Column(name = "OBSERVACAO_LOTE")
+    private var observacao: String? = null
+
+    // adicionar fornecedor / status / loteProdutos
 )
