@@ -9,6 +9,10 @@ data class Lote(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "ID_LOTE")
     var id: Int? = null,
 
+    @ManyToOne
+    @JoinColumn(name = "FK_ID_FORNECEDOR_LOTE", referencedColumnName = "ID_FORN")
+    val fornecedor: Fornecedor? = null,
+
     @Column(name = "DATA_PEDIDO_LOTE")
     val dtPedido: LocalDate? = null,
 
