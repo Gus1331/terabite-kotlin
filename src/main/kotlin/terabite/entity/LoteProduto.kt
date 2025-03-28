@@ -2,6 +2,8 @@ package terabite.entity
 
 import jakarta.persistence.*
 
+@Entity
+@Table(name = "LOTE_PRODUTO")
 data class LoteProduto(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
